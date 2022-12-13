@@ -67,13 +67,13 @@ int main() {
   }
   
   printf("\nYour total room charge is: %.2f\n \nDo you want to continue?(y/n): ", totalPrice);
-  scanf("%d", & decision);
+  scanf(" %c", & decision);
 
   if(toupper(decision) == 'Y') {
-      printf("Purchase Approved");
+      printf("Purchase Approved :)");
       
   } else {
-      printf("Purchase cancelled");
+      printf("Purchase cancelled :(");
       exit(0);
   }
   
