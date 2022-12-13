@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 int main() {
-  char roomType, paymentMethod;
+  char roomType, paymentMethod, decision;
   int noOfRooms, noOfNights;
   float roomPrice = 0;
   float totalPrice = 0;
@@ -15,31 +15,31 @@ int main() {
   switch (toupper(roomType)) {
   case 'D':
     roomPrice = 31000.00;
-    printf("Delux");
+    printf("\tDelux");
     break;
 
   case 'S':
     roomPrice = 35000.00;
-    printf("Superior Deluxe");
+    printf("\tSuperior Deluxe");
     break;
 
   case 'C':
     roomPrice = 50000.00;
-    printf("Club Suites");
+    printf("\tClub Suites");
     break;
 
   case 'E':
     roomPrice = 75000.00;
-    printf("Executive Suites");
+    printf("\tExecutive Suites");
     break;
 
   case 'P':
     roomPrice = 100000.00;
-    printf("Presidential Suite");
+    printf("\tPresidential Suite");
     break;
 
   default:
-    printf("Invalid Room Type");
+    printf("\tInvalid Room Type");
     exit(0);
   }
 
@@ -59,13 +59,24 @@ int main() {
 
   } else if (toupper(paymentMethod) == 'M') {
     totalPrice = noOfRooms * noOfNights * roomPrice;
-    printf("Total amount : %.2f\n", totalPrice);
+    printf("Total amount : Rs.%.2f\n", totalPrice);
 
   } else {
     printf("Wrong Payment Type, Abort...");
     exit(0);
   }
+  
+  printf("\nYour total room charge is: %.2f\n \nDo you want to continue?(y/n): ", totalPrice);
+  scanf("%d", & decision);
 
+  if(toupper(decision) == 'Y') {
+      printf("Purchase Approved");
+      
+  } else {
+      printf("Purchase cancelled");
+      exit(0);
+  }
+  
   return 0;
 }
 ```
